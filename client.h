@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QTcpSocket>
+#include <QUdpSocket>
+#include <QTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Client; }
@@ -26,8 +28,10 @@ private slots:
 private:
     Ui::Client *ui;
     QTcpSocket *tcpSocket;
+    QUdpSocket *udpSocket;
     QByteArray Data;
     void SendToServer(QString str);
+    quint16 nextBlockSize;
 
 public slots:
     void slotReadyRead();
